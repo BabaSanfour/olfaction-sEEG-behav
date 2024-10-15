@@ -65,51 +65,78 @@ olfaction_scripts_old/
 │   │    │    └── ... name.ipynb                    # Notebooks for various analyses
 │   │    ├── utils/                                  
 │   │    │    └── ... name.ipynb                    # Notebooks for various analyses
-│   │    └── ... name.ipynb                          # Notebooks for classification and ERP analysis
+│   │    └── ... name.ipynb                         # Notebooks for classification and ERP analysis
 │   ├── ripples_hfo/                             
-│   │    └── ... name.ipynb                          # Notebooks for HFO
-│   └── src/                                         # VisPy source code
+│   │    └── ... name.ipynb                         # Notebooks for HFO
+│   └── src/                                        # VisPy source code
 ├── 4_Visbraun_scripts/                                                           
 │   ├── OLD/                             
-│   │    └── ... name.py                             # Plotting scripts
-│   ├── src/                                         # VisPy source code
-│   └── ... name.ipynb                               # Plotting scripts
+│   │    └── ... name.py                            # Plotting scripts
+│   ├── src/                                        # VisPy source code
+│   └── ... name.ipynb                              # Plotting scripts
 ├── Data_NicoF_CRNL/                                                           
-│   ├── Encoding_Odor/                               # Clean data (npz files)                             
-│   ├── Rappel_odor/                                 # Clean data (npz files) 
-│   └── Recognition/                                 # Clean data (npz files)
-├── Implantation_Patients_MNI/                       # Subjects' implantation data                                    
+│   ├── Encoding_Odor/                              # Clean data (npz files)                             
+│   ├── Rappel_odor/                                # Clean data (npz files) 
+│   └── Recognition/                                # Clean data (npz files)
+├── Implantation_Patients_MNI/                      # Subjects' implantation data                                    
 ├── OE_Matrices_NoArt/
 │   ├── _DB_2021_Janv/
 │   │    ├── TS_E_all_cond_by_block_trigs_odors/
 │   │    │    ├── _group_files/                      
-│   │    │    │    └── ... {Ident}_odor_{i}.npy      # Unclear usage
+│   │    │    │    └── ... {Ident}_odor_{i}.npy     # Unclear usage
 │   │    │    ├── {ident}/                          # Subject data (available for all subjects)
 │   │    │    │    ├── R1/
 │   │    │    │    │    └── ... name.npy            # correct_ts_{i}_by_odor+trigs.npy files
 │   │    │    │    ├── R2/                          # Same as above
 │   │    │    │    ├── R3/                          # Same as above
 │   │    │    │    └── ... name.txt                 # Channel descriptions files
-│   │    ├── TS_R_all_cond_by_block_trigs_odors/     # Same as above
-│   │    └── TS_R_all_cond_by_block_trigs_rec_time/  # Same as above
-│   ├── TS_E_all_cond_by_block_trigs_odors/          # Same as above
+│   │    ├── TS_R_all_cond_by_block_trigs_odors/    # Same as above
+│   │    └── TS_R_all_cond_by_block_trigs_rec_time/ # Same as above
+│   ├── TS_E_all_cond_by_block_trigs_odors/         # Same as above
 │   │    ├── _group_files/
-│   │    │    └── ... {Ident}_odor_{i}.npy           # Unclear usage
+│   │    │    └── ... {Ident}_odor_{i}.npy          # Unclear usage
 │   │    ├── _mat_by_odor/
-│   │    │    └── ... {Ident}_odor_{i}.mat           # Unclear usage
-│   │    ├── {ident}/                                 # Subject data (available for all subjects)
+│   │    │    └── ... {Ident}_odor_{i}.mat          # Unclear usage
+│   │    ├── {ident}/                               # Subject data (available for all subjects)
 │   │    │    ├── R1/
-│   │    │    │    └── ... name.npy                  # correct_ts_{i}_by_odor+trigs.npy files
-│   │    │    ├── R2/                                # Same as above
-│   │    │    ├── R3/                                # Same as above
-│   │    │    └── ... name.txt                       # Channel descriptions files
-│   ├── TS_R_all_cond_by_block_trigs_odors/          # Same as above
-│   └── TS_R_all_cond_by_block_trigs_rec/            # Same as above
-
+│   │    │    │    └── ... name.npy                 # correct_ts_{i}_by_odor+trigs.npy files
+│   │    │    ├── R2/                               # Same as above
+│   │    │    ├── R3/                               # Same as above
+│   │    │    └── ... name.txt                      # Channel descriptions files
+│   ├── TS_R_all_cond_by_block_trigs_odors/         # Same as above
+│   └── TS_R_all_cond_by_block_trigs_rec/           # Same as above
+├── Olfacto/
+│   ├── _Figures_TPSim_paper_/                      # Folders with figures (PNG/PDF) and CSV/NPZ files of results
+│   ├── classified/                                 # Folders with figures (PNG/PDF) and CSV/NPZ files of results (Power Encoding Retrieval RSA TF and TPSim)
+│   ├── correlations_pow/                           # Folders with figures (PNG/PDF)
+│   ├── correlations_pow_all_trials/                # Folders with figures (PNG/PDF)
+│   ├── database/                                   # Folders with figures (PNG/PDF) and CSV/NPZ files of results (Power Encoding Retrieval RSA TF and TPSim)
+│   ├── feature/                                    # Folders with figures (PNG/PDF) and CSV/NPZ files of results (Power Encoding Retrieval RSA TF and TPSim)
+│   ├── feature_new/                                # Folders with figures (PNG/PDF) and CSV/NPZ files of results (FOOOF)
+│   ├── figure/                                     # Folders with figures (PNG/PDF) and CSV/NPZ files of results
+│   ├── kruskal_pow/                                # Folders with figures (PNG/PDF)
+│   ├── kruskal_pow_all_trials/                     # Folders with figures (PNG/PDF)
+│   ├── kruskal_TPSsim_all_trials/                  # Folders with figures (PNG/PDF)
+│   ├── MF_resultsE/
+│   │    ├── npz/                                   # NPZ files with results
+│   │    ├── plots/                                 # NPZ files with plots 
+│   │    └── ... {ident}_{i}_{j}_MVPA_scores.npz    # NPZ files with results 
+│   ├── MF_resultsR/
+│   │    ├── npz/                                   # NPZ files with results
+│   │    ├── plots/                                 # NPZ files with plots 
+│   │    └── ... {ident}_{i}_{j}_MVPA_scores.npz    # NPZ files with results 
+│   └── stats_R/                                    # Folders of statistical data and CSV files 
+│        ├── csv/                                   # CSV files
+│        ├── csv_new_E/                             # New statistical data (E)
+│        ├── csv_new_E_R/                           # New statistical data (E and R)
+│        └── csv_new_R/                             # New statistical data (R)
+├── Poster_Conference/                              # Files for CERNEC and OHBM posters
+├── Protocole/                                      # Files and folders for protocols
+├── respi/                                          # Folders with figures (PNG/PDF) and CSV/NPZ files of results (Power Encoding Retrieval RSA TF and TPSim)
+├── Ripples/                                        # Folders with figures (PNG/PDF) and CSV/NPZ files of results (Power Encoding Retrieval RSA TF and TPSim)
+├── Scripts_respi/                                  # Plotting and analysis scripts and notebooks
+│   ├── ... name.py                                 # Python scripts for analysis
+│   └── ... name.ipynb                              # Notebooks for analysis
+└── preprocessing.py                                # Preprocessing script
 
 ```
-
-## Overview
-
-- **Raw Data:** Contains raw behavioral and sEEG data for each subject.
-- **Behavioral Analysis Scripts:** This directory includes various scripts for analyzing behavioral results, generating figures, and processing sEEG data.
