@@ -73,7 +73,7 @@ olfaction_scripts_old/
 │   ├── OLD/                             
 │   │    └── ... name.py                            # Plotting scripts
 │   ├── src/                                        # VisPy source code
-│   └── ... name.ipynb                              # Plotting scripts
+│   └── ... name.py                                 # Plotting scripts
 ├── Data_NicoF_CRNL/                                                           
 │   ├── Encoding_Odor/                              # Clean data (npz files)                             
 │   ├── Rappel_odor/                                # Clean data (npz files) 
