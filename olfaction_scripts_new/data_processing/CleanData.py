@@ -8,11 +8,10 @@ Author: AL
 Modification: HA
 Date: 2024-12-03
 """
-
+import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-import os
 import numpy as np
 from scipy.io import loadmat
 from utils.config import TS_E_all_cond_by_block_trigs_odors_folder, subjects, trigger_to_calculate, phases
