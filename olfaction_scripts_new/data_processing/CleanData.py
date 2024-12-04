@@ -60,7 +60,6 @@ def _clean_data(pathdata, suj, phase, trigger):
     
     # Round coordinates to one decimal place
     xyz = np.round(xyz, decimals=1)
-    print(f"    Channel Coordinates (xyz):\n    {xyz}")
 
     # Clean and reshape the data matrix 'x'
     x = mat['x']
@@ -88,7 +87,7 @@ def _clean_data(pathdata, suj, phase, trigger):
     del dico['__version__']
 
     # Return the cleaned data dictionary and the short filename
-    return dico, fname.split('.mat')[0]
+    return dico, file.split('.mat')[0]
 
 
 def main():
@@ -111,8 +110,7 @@ def main():
                 if dico is None:
                     continue
                 
-                path_to_save = os.path.join(data_path, 'Encoding_By_Odor', f'{shortname}.npz')
-                
+                path_to_save = os.path.join(TS_E_all_cond_by_block_trigs_odors_folder, 'Encoding_By_Odor', f'{shortname}.npz')
                 np.savez(path_to_save, **dico)
                 print(f"  Data saved to: {path_to_save}")
     
