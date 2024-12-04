@@ -9,6 +9,9 @@ Modification: HA
 Date: 2024-12-03
 """
 
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 import os
 import numpy as np
 from scipy.io import loadmat
