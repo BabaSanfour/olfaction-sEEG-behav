@@ -147,7 +147,7 @@ def find_bipolar_pairs(channels, xyz):
             midpoint = (np.array(xyz[anode_name]) + np.array(xyz[cathode_name])) / 2
             xyz_pairs.append(midpoint)
     
-    return pairs, anodes, cathodes, np.round(np.array(xyz_pairs), decimals=1)
+    return pairs, anodes, cathodes, np.array(xyz_pairs)
 
 def bipolarization(raw):
     """
