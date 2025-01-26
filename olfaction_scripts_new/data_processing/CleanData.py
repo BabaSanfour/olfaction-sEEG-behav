@@ -92,7 +92,10 @@ def clean_data(subject):
         raw = mne.io.RawArray(data[:len(chan_names)], info)
 
         # Add channel positions if available
-        montage = mne.channels.make_dig_montage(ch_pos=dict(zip(chan_names, xyz)), coord_frame="head")
+        montage = mne.channels.make_dig_montage(
+            ch_pos=dict(zip(chan_names, xyz/1000)), #xyz is in mm; mne.channels.make_dig_montage accepts loc in m.
+            coord_frame="head"
+            ) 
         raw.set_montage(montage)
 
         # Save as FIF
