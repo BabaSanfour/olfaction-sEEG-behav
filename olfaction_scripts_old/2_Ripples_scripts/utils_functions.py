@@ -1,3 +1,17 @@
+"""
+Utility functions for Ripple Detection and Electrode Management.
+
+This module contains helper functions used primarily by `05_detect_ripples.py`
+and notebooks for:
+1.  Signal processing (2D convolution).
+2.  Electrode renaming and ROI assignment based on MNI coordinates.
+3.  Data aggregation across subjects.
+
+Key Functions:
+    - conv2: Matlab-like 2D convolution.
+    - rename_elecs / rename_elecs_df: Assigns anatomical labels (OFC, Insula, etc.) based on coordinates.
+    - compute_big_npz: Aggregates features across multiple subjects into a single dictionary.
+"""
 import numpy as np
 from os import listdir
 from scipy.signal import convolve2d

@@ -1,3 +1,21 @@
+"""
+Representational Similarity Analysis (RSA) Library.
+
+This module provides core functions to compute RSA matrices, supporting both
+within-condition and between-condition similarity analysis using Pearson or Spearman
+correlations.
+
+Functions:
+    - _compute_rsa: Basic RSA calculation between two trials.
+    - _btw_rsa_twoconds: RSA between two conditions.
+    - within_rsa: RSA within a single condition.
+    - btw_rsa: Bootstrapped RSA between multiple conditions.
+
+Dependencies:
+    - numpy
+    - scipy.stats
+    - itertools
+"""
 from itertools import product, combinations
 import numpy as np
 from scipy.stats import pearsonr, spearmanr

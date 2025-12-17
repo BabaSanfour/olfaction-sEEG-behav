@@ -1,6 +1,41 @@
+"""
+Script to detect ripples and physiological artifacts.
+
+This script implements criteria (likely Vaz et al. 2019) to identify High Frequency Oscillations (HFOs)
+associated with ripples, while rejecting artifacts based on signal amplitude and gradients.
+
+Usage:
+    Run directly: python 05_detect_ripples.py
+    Ensures `config.py` is available.
+
+Input:
+    - `INFO_ampl.npz` in `feature/` folder containing:
+        - `xampl`: Hilbert amplitudes (Ripple band 80-120Hz, Low Freq 15-60Hz)
+        - `x`: Raw signal (bipolarized)
+
+Output:
+    - `rip_art.npz` in `ripples/` folder containing:
+        - `ripples`: Binary mask of detected ripples
+        - `artefacts`: Binary mask of detected artifacts
+"""
 import numpy as np
 from os.path import join, exists
 from os import makedirs
+
+import sys
+from pathlib import Path
+
+# Add project root to sys.path to find config.py
+# olfaction_scripts_old is 2 levels up from 2_Ripples_scripts
+current_dir = Path(__file__).resolve().parent
+root_dir = current_dir.parent.parent
+sys.path.append(str(root_dir))
+
+try:
+    import config
+    STUDY_NAME = config.STUDY_NAME
+except ImportError:
+    STUDY_NAME = 'Ripples' # Keeping 'Ripples' if that was the intent, or fallback to config if present.
 
 from brainpipe.system import study
 from utils_functions import conv2
@@ -82,7 +117,19 @@ def detect_ripples(xamp_rip, xamp_lf, raw_sig, rip_th=2, rip_width=[10,100], rip
 
 if __name__ == "__main__":
 
-    st = study('Ripples')
+if __name__ == "__main__":
+
+    try:
+        st = study(STUDY_NAME)
+    except NameError:
+        print("Warning: 'study' not defined. Ensure brainpipe is installed.")
+        st = None
+
+    if st:
+        reps = ['Retrieval_new_odors/','Retrieval_new_rec/','Encoding/']
+        # Check if folders exist or fallback to known pattern
+        # This script assumes a 'INFO_ampl.npz' exists in 'feature/'
+
     reps = ['Retrieval_new_odors/','Retrieval_new_rec/','Encoding/']
     feat_save = ['f', 'time', 'xampl', 'x', 'fname', 'new_labels', 'channels', 'labels', 'xyz']
 
