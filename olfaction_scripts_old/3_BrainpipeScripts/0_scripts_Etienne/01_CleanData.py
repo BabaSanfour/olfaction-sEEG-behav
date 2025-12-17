@@ -1,6 +1,23 @@
-"""This script will clean your data/channels/coordinates,
-adapt it from matlab format and save in a convenient
-numpy format.
+"""
+This script ingests raw Matlab data and converts it to a clean numpy (.npz) format.
+
+Usage:
+    Run this script after setting up 'config.py'.
+    It uses 'brainpipe.system.study' to locate the database path.
+    Input raw data path is defined in 'config.py'.
+
+Input:
+    Matlab files ({subj}_R123_Ordre{encoding}concat_trigg{trigg}.mat) containing:
+    - 'x': Raw signal matrix
+    - 'chanmonop': Channel info and coordinates
+    - 'sf': Sampling frequency
+
+Output:
+    Saves .npz files to the 'database/' folder of the Study path.
+    The .npz file contains:
+    - 'x': Signal (n_channels, n_samples, n_trials)
+    - 'xyz': Coordinates
+    - 'channel': Channel labels
 """
 import numpy as np
 import matplotlib.pyplot as plt
@@ -48,10 +65,30 @@ def _cleanData(path, suj, encoding, trigger):
     return dico, loadname.split('.mat')[0]
 
 
+import sys
+from pathlib import Path
+
 if __name__ == '__main__':
+    # Add parent directory to path to import config
+    current_dir = Path(__file__).resolve().parent
+    # olfaction_scripts_old is 2 levels up
+    root_dir = current_dir.parent.parent
+    sys.path.append(str(root_dir))
+    
+    try:
+        import config
+    except ImportError:
+        # Create a dummy config if not found to avoid crashing
+        class config:
+            DEFAULT_RAW_PATH = r'./data'
+            STUDY_NAME = 'Olfacto'
+
     # Filesettings :
-    st = study('Olfacto') # Load the study
-    pathdata = r'C:\Users\Anne-Lise\Dropbox\Intra_EM\2_eeg2mat\data_mat\Concat_files' # path where data are located
+    st = study(config.STUDY_NAME) # Load the study
+    pathdata = config.get_raw_data_path() # Path where raw Mat files are located
+    
+    print(f"-> Looking for raw data in: {pathdata}")
+    
     trigger = ["01"] # list of triggers
     suj = [('PIRJ', 'MF')] # list of tuples containing (subjects, encoding)
 

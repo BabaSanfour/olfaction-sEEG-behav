@@ -1,0 +1,19 @@
+# Core Scientific Stack
+numpy
+scipy
+matplotlib
+pandas
+
+# Machine Learning & Signal Processing
+scikit-learn
+mne
+
+# Visualization
+# visbrain  # Note: visbrain might require specific installation instructions (PyQt)
+
+# Analysis Libraries found in imports
+# neurora # Found in RSA notebooks
+
+# CRITICAL MISSING DEPENDENCY
+# brainpipe  # This custom library is required but source is missing.
+# Please locate 'brainpipe' source or recreate it.
